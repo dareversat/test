@@ -1,0 +1,78 @@
+Overview
+======================================================================
+
+All the installers are doing the following tasks :
+	- Detect if Anaconda is installed, if not it downloads and installs the latest version
+	- Download the latestest version of SyncPy from Github downloading the master.zip file
+	- Extract the SyncPy archive to the root of the system used (/ for Unix, main hardrive for Windows)
+	- Create a shortcut to the interface on the user's desktop for Windows and Mac, in user's home for linux
+	- Delete all temporary files
+
+	
+Create an installer script for Mac
+======================================================================
+
+Copy the skeleton script and rename it like this : SyncPy-X.X.sh where X.X is the latest version of SyncPy.
+
+Open the script.
+
+Check the url of the Anaconda install package and the version of Anaconda to install.
+Check the links and latests versions here: https://www.continuum.io/downloads
+Rename all anaconda packages names and modify the download link if needed.
+
+In the SyncPy part, modify the line: sudo cp -R SyncPy-master/vX.X /SyncPy/
+to change the X.X by the latest version of SyncPy available on Github.
+
+
+Create an installer script for Linux
+======================================================================
+
+Copy the skeleton script and rename it like this : SyncPy-X.X.sh where X.X is the latest version of SyncPy.
+
+Open the script.
+
+Check the url of the Anaconda install script and the version of Anaconda to install.
+Check the links and latests versions here: https://www.continuum.io/downloads
+Rename all anaconda script names and modify the download link if needed.
+
+In the SyncPy part, modify the line: sudo cp -R SyncPy-master/vX.X /SyncPy/
+to change the X.X by the latest version of SyncPy available on Github.
+
+
+Create an installer for Windows
+======================================================================
+
+You will need a Windows computer to create the installer.
+
+1. Installer script
+----------------------------------------
+Copy the skeleton script and rename it like this : SyncPy-X.X.bat where X.X is the latest version of SyncPy.
+
+Open the script with your favorite text editor (Notepad++ is great for that).
+
+Check the url ofwthe Anaconda installation file and the version of Anaconda to install.
+Check the links and latests versions here: https://www.continuum.io/downloads
+Rename all anaconda exe file names and modify the download link if needed.
+
+In the SyncPy part, modify the line: xcopy /E /Y SyncPy-master\vX.X %systemdrive%\SyncPy\
+to change the X.X by the latest version of SyncPy available on Github.
+
+2. Exe creation
+----------------------------------------
+Open the script createExe.bat
+
+Modify SyncPy-X.X.bat with the name of the script you edited in 1.
+
+Save and close. 
+
+Open the script MakeExeFromBat.bat and modify PathTo7Zip with the current folder if you don't have 7zip installed on your computer.
+
+Execute the createExe.bat script, right clic -> execute as Administrator.
+
+A file name SyncPy-X.X.exe is created.
+
+3. Info part: how it works
+----------------------------------------
+createExe.bat calls MakeExeFromBat.bat
+
+MakeExeFromBat.bat creates a self extracting archive with 7zip containing all the files you specify and extract them into a temp folder. After the extraction it calls the bat file you specify and then delete everything.
