@@ -70,5 +70,7 @@ def Align(signal_1, signal_2, how='inner'):
     #convert back the time series in dataFrame 
     out_1 = pd.DataFrame(aligned_data.iloc[:,0], aligned_data.index)
     out_2 = pd.DataFrame(aligned_data.iloc[:,1], aligned_data.index)
+    
+    test
         
     return out_1, out_2
